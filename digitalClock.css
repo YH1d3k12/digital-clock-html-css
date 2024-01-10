@@ -1,0 +1,175 @@
+:root {
+    --section-background-color: linear-gradient(45deg, #08001f, #30197d);
+    --section-color: #fff;
+    --digital-clock-background-color: #eb00ff1c;
+    --digital-clock-background-color-after: #f41b75;
+    --digital-clock-background-color-before: #419aff;
+}
+* {
+    box-sizing: border-box;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+.section {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background: var(--section-background-color);
+    color: var(--section-color);
+}
+
+.digital-clock-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    height: 45px;
+    width: 200px;
+
+    transform: translate(-50%, -50%);
+}
+
+.digital-clock-container::before {
+    content: '';
+    position: absolute;
+    top: -25%;
+    left: -7.5%;
+
+    height: 45px;
+    width: 45px;
+    border-radius: 5px;
+
+    background: var(--digital-clock-background-color-before);
+    z-index: -1;
+}
+
+.digital-clock-container::after {
+    content: '';
+    position: absolute;
+    bottom: -25%;
+    right: -5%;
+
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+
+    background: var(--digital-clock-background-color-after);
+    z-index: -1;
+}
+
+.digital-clock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    
+    background: var(--digital-clock-background-color);
+    backdrop-filter: blur(40px);
+}
+
+.digital-clock span {
+    position: relative;
+    display: inline-block;
+
+    width: 15%;
+
+    font-size: 20px;
+    text-align: center;
+}
+
+.digital-clock span::after {
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+
+    font-size: 8px;
+    transform: translateX(-50%);
+}
+
+#digital-clock-hours::after {
+    content: 'HOURS';
+}
+
+#digital-clock-minutes::after {
+    content: 'MINS';
+}
+
+#digital-clock-seconds::after {
+    content: 'SEC';
+}
+
+@media (min-width: 480px) {
+    .digital-clock-container {
+        height: 90px;
+        width: 400px;
+    }
+
+    .digital-clock-container::before {
+        height: 90px;
+        width: 90px;
+    }
+
+    .digital-clock-container::after {
+        height: 90px;
+        width: 90px;
+    }
+
+    .digital-clock span {
+        font-size: 40px;
+    }
+
+    .digital-clock span::after {
+        font-size: 16px;
+        bottom: -10px;
+    }
+}
+
+@media (min-width: 760px) {
+    .digital-clock-container {
+        height: 135px;
+        width: 600px;
+    }
+
+    .digital-clock-container::before {
+        height: 145px;
+        width: 145px;
+    }
+
+    .digital-clock-container::after {
+        height: 145px;
+        width: 145px;
+    }
+
+    .digital-clock span {
+        font-size: 60px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .digital-clock-container {
+        height: 180px;
+        width: 800px;
+    }
+
+    .digital-clock-container::before {
+        height: 180px;
+        width: 180px;
+    }
+
+    .digital-clock-container::after {
+        height: 180px;
+        width: 180px;
+    }
+
+    .digital-clock span {
+        font-size: 80px;
+    }
+}
