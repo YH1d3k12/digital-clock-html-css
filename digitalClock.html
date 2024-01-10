@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Digital Clock</title>
-    <link rel="stylesheet" href="digitalClock.css"/>
+    <link rel="stylesheet" href="digitalClock.css" />
 </head>
+
 <body>
     <section class="section">
         <div class="digital-clock-container">
@@ -18,17 +20,24 @@
         </div>
     </section>
     <script>
+        // Seleciona os elementos html a partir do id.
         let hrs = document.getElementById("digital-clock-hours");
         let mins = document.getElementById("digital-clock-minutes");
         let sec = document.getElementById("digital-clock-seconds");
 
-        setInterval(()=>{
+        /* Função que repetidamente executa a função anonima (definida no primeiro argumento)
+        a cada 1000ms, como definido no segundo argumento. */
+        setInterval(() => {
+            // Pega a hora atual do relógio.
             let currentTime = new Date();
 
+            // Pega individualmente as horas, minutos e segundos do horário.
+            // Formata o valor para sempre aparecer dois dígitos usando o operador ternário.
             hrs.innerHTML = (currentTime.getHours() < 10 ? "0" : "") + currentTime.getHours();
             mins.innerHTML = (currentTime.getMinutes() < 10 ? "0" : "") + currentTime.getMinutes();
             sec.innerHTML = (currentTime.getSeconds() < 10 ? "0" : "") + currentTime.getSeconds();
         }, 1000);
     </script>
 </body>
+
 </html>
